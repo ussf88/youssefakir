@@ -4,104 +4,43 @@
     box-sizing: border-box;
     font-family: 'Sen', sans-serif;
 }
-.fab-container{
-    position:fixed;
-    top:100px;
-    right:100px;
-    z-index:999;
-    cursor: pointer;
-}
-.fab-icon-holder{
-    width:50px;
-    height: 50px;
-    border-radius:50%;
-    background-color: aqua;
-    z-index: 23;
+body{
     display: flex;
     justify-content: center;
     align-items: center;
- 
+    height: 100vh;
+    width:100vw;
 }
-.fab-icon-holder:hover{
-    opacity: 0.5;
+.circle{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, rgba(11,114,221,0.75) 1%, rgba(50,0,255,0.75) 100%),url('0.jpg') no-repeat;
+    background-size: cover;
+    transform: translateX(800%);
+    animation: fromside 1s ease-in-out forwards,tocube 0.5s ease forwards 1s;
 }
-.burger {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    height: 50px;
-    width:50px;
-    padding:7px;
-
-}
-.nav-text{
-    color:aqua;
-    letter-spacing: 3px;
-    font-size:15px;
-    font-weight: bold;
-}
-.fab-container{
- 
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    width:700px;
-    overflow-x: hidden;
-}
-.fab-options {
-
-    display: flex;
-    width:600px;
-    justify-content: space-around;
-    align-items: center;
-    list-style: none;
-    transform:translate(120%);
-    transition: transform 0.5s ease-in;
-
-}
-.nav-active {
-    transform: translate(0);
-}
-.fab-options li{
-    
-}
-@keyframes navlinkfade{
-    from{
-        opacity :0;
-        transform:translate(500px) ;
+@keyframes fromside{
+    0%{
+        transform: translateX(800%);
     }
-    to{
-        opacity:1;
-        transform:translate(0);
-
+    70%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0);
     }
 }
-.line1{
-    width:25px;
-    height: 5px;
-    background-color: white;
-    transition: all 0.3s ease;
-}
-.line2{
-    width:25px;
-    height: 5px;
-    background-color: white;
-    transition: all 0.3s ease;
-}
-
-.line3{
-    width:25px;
-    height: 5px;
-    background-color: white;
-    transition: all 0.3s ease;
-}
-.toggle .burger .line1{
-    transform:rotate(-45deg) translate(-10px,10px);
-}
-.toggle .burger .line2{
-    opacity: 0;
-}
-.toggle .burger .line3{
-    transform:rotate(45deg)  translate(-10px,-10px);
+@keyframes tocube{
+    0%{
+        border-radius: 50%;
+        height: 100px;
+        width:100px;
+    }
+    100%{
+        border-radius: 10%;
+        height: 500px;
+        width: 500px;
+        filter: blur(3px);
+    }
 }
