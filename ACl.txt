@@ -1,0 +1,24 @@
+ACL(access list)
+filtrage : 
+   @ip
+   protocol
+   N port 
+3 type d ACL:
+    standard : filtrage @ ip 
+    etendue : filtrage @ip porotocol /num port
+    nommé
+2 regle:
+  1-creation
+  2-application
+ACL standard:
+   creation:
+      access-list 10( a number) permit/deny 192.168.146.0(ip source)
+   application:
+       int fa 0/0 port of router connected to the distination
+       ip access-group 10( the number) in/out (block the coming or going from the router closest to destination machine)
+ACL etendue:
+    creation:
+       access-list 101(a number) permit/deny tcp(porotocol) 192.168.8.0(@ip source) 0.0.0.255(wildcard) any(@ip destination) eq(oprater) 80
+       ip access-group ACL_NUMBER in | out (block the coming or going from the router closest to source machine)
+           
+    
