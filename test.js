@@ -1,32 +1,7 @@
-const navbutton = () => {
-    const burger = document.querySelector('.fab-icon-holder');
-    const nav = document.querySelector('.fab-options');
-    const navlinks = document.querySelectorAll('.fab-options li');
-    burger.addEventListener('click', () => {
-        nav.classList.toggle('nav-active');
-
-
-
-        navlinks.forEach((link, index) => {
-            if (link.style.animation) {
-                link.style.animation = '';
-            }
-            else {
-                link.style.animation = `navlinkfade 0.5s ease ${index / 10}s forwards`;
-            }
-        });
-        burger.classList.toggle('toggle');
-    });
-
-}
-
-
-
-
-
-
-
-
-
-
-navbutton();
+const hero = document.querySelector('.hero');
+const slider = document.querySelector('.slider');
+const headline = document.querySelector('.headline');
+const tl = new TimelineMax();
+tl.fromTo(hero, 1, { height: "0%" }, { height: "80%", ease: Power2.easeInOut })
+    .fromTo(hero, 1.2, { width: "100%" }, { width: "80%", ease: Power2.easeInOut })
+    .fromTo(slider, 1.2, { x: "-100%" }, { x: "0%", ease: Power2.easeInOut }, "-=1.2");

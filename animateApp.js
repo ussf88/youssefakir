@@ -48,3 +48,22 @@ const navbutton = () => {
 
 }
 navbutton();
+const hero = document.querySelector('.hero');
+const slider = document.querySelector('.slider');
+const headline = document.querySelector('.headline');
+const tl = new TimelineMax();
+var scrollpos = window.scrollY; // window scroll position
+var wh = window.innerHeight - 50; // as soon as element touches bottom with offset event starts
+var about = document.querySelector(".about"); //element
+
+window.addEventListener('scroll', function () {
+    this.console.log("scroll " + scrollpos);
+    this.console.log("other " + (about.offsetTop - wh));
+    if (scrollpos > (about.offsetTop - wh)) {
+        tl.fromTo(hero, 5, { height: "0%" }, { height: "80%", ease: Power2.easeInOut })
+            .fromTo(hero, 1.2, { width: "100%" }, { width: "80%", ease: Power2.easeInOut })
+            .fromTo(slider, 1.2, { x: "-100%" }, { x: "0%", ease: Power2.easeInOut }, "-=1.2");
+        this.console.log("hello");
+    }
+    this.console.log("hello1");
+});
