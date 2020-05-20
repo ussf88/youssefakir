@@ -52,7 +52,7 @@ const hero = document.querySelector('.hero');
 const slider = document.querySelector('.slider');
 const headline = document.querySelector('.headline');
 const tl = new TimelineMax();
-var scrollpos = window.scrollY; // window scroll position
+/*var scrollpos = window.scrolltop() + window.height()// window scroll position
 var wh = window.innerHeight - 50; // as soon as element touches bottom with offset event starts
 var about = document.querySelector(".about"); //element
 
@@ -66,4 +66,52 @@ window.addEventListener('scroll', function () {
         this.console.log("hello");
     }
     this.console.log("hello1");
-});
+});*/
+
+
+
+
+
+
+
+
+
+
+// get the element to animate
+var element = document.querySelector(".about");
+var elementHeight = element.clientHeight;
+
+// listen for scroll event and call animate function
+document.addEventListener('scroll', animate);
+var thing = 1;
+
+// check if element is in view
+function inView() {
+    // get window height
+    var windowHeight = window.innerHeight;
+    // get number of pixels that the document is scrolled
+    var scrollY = window.scrollY || window.pageYOffset;
+
+    // get current scroll position (distance from the top of the page to the bottom of the current viewport)
+    var scrollPosition = scrollY + windowHeight;
+    // get element position (distance from the top of the page to the bottom of the element)
+    var elementPosition = element.getBoundingClientRect().top + scrollY + elementHeight;
+
+    // is scroll position greater than element position? (is element in view?)
+    if (scrollPosition > elementPosition && thing == 1) {
+        thing = 0;
+        return true;
+    }
+
+    return false;
+}
+console.log(thing);
+// animate element when it is in view
+function animate() {
+    // is element in view?
+    if (inView()) {
+        tl.fromTo(hero, 1.5, { height: "0%" }, { height: "80%", ease: Power2.easeInOut }, "+=1")
+            .fromTo(hero, 1.2, { width: "100%" }, { width: "80%", ease: Power2.easeInOut })
+            .fromTo(slider, 1.2, { x: "-100%" }, { x: "0%", ease: Power2.easeInOut }, "-=1.2");
+    }
+}
