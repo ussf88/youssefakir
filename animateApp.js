@@ -49,25 +49,10 @@ const navbutton = () => {
 }
 navbutton();
 const hero = document.querySelector('.hero');
+const myimg = hero.querySelector('img');
 const slider = document.querySelector('.slider');
 const headline = document.querySelector('.headline');
 const tl = new TimelineMax();
-/*var scrollpos = window.scrolltop() + window.height()// window scroll position
-var wh = window.innerHeight - 50; // as soon as element touches bottom with offset event starts
-var about = document.querySelector(".about"); //element
-
-window.addEventListener('scroll', function () {
-    this.console.log("scroll " + scrollpos);
-    this.console.log("other " + (about.offsetTop - wh));
-    if (scrollpos > (about.offsetTop - wh)) {
-        tl.fromTo(hero, 5, { height: "0%" }, { height: "80%", ease: Power2.easeInOut })
-            .fromTo(hero, 1.2, { width: "100%" }, { width: "80%", ease: Power2.easeInOut })
-            .fromTo(slider, 1.2, { x: "-100%" }, { x: "0%", ease: Power2.easeInOut }, "-=1.2");
-        this.console.log("hello");
-    }
-    this.console.log("hello1");
-});*/
-
 
 
 
@@ -80,9 +65,27 @@ window.addEventListener('scroll', function () {
 // get the element to animate
 var element = document.querySelector(".about");
 var elementHeight = element.clientHeight;
+var txt = "Hey There my name is Youssef El Faquir and i Am a web Developer << Currently I'am a Student At The National School of Computer Science ENSIAS Located in Rabat << I was Always a passionate about Computer Science always seeking  fond of Web Development and Web Design";
+var i = 0; /* The text */
+var speed = 50;
+function typeWriter() {
+    if (i < txt.length) {
+        if (txt.charAt(i) == "<") {
+            document.querySelector(".about_text").innerHTML += "<br/>";
+            i++;
+        }
+        else {
+            document.querySelector(".about_text").innerHTML += txt.charAt(i);
+            i++;
+        }
+        setTimeout(typeWriter, speed);
+    }
+}
 
 // listen for scroll event and call animate function
-document.addEventListener('scroll', animate);
+document.addEventListener('scroll', function () {
+    animate(typeWriter)
+});
 var thing = 1;
 
 // check if element is in view
@@ -106,12 +109,29 @@ function inView() {
     return false;
 }
 console.log(thing);
+
 // animate element when it is in view
-function animate() {
+function animate(callback) {
     // is element in view?
     if (inView()) {
         tl.fromTo(hero, 1.5, { height: "0%" }, { height: "80%", ease: Power2.easeInOut }, "+=1")
             .fromTo(hero, 1.2, { width: "100%" }, { width: "80%", ease: Power2.easeInOut })
-            .fromTo(slider, 1.2, { x: "-100%" }, { x: "0%", ease: Power2.easeInOut }, "-=1.2");
+            .fromTo(slider, 1.2, { x: "-100%" }, { x: "0%", ease: Power2.easeInOut }, "-=1.2")
+            .to(myimg, 2, {
+                onUpdateParams: ["{self}"],
+                onUpdate: function (tl) {
+                    var tlp = (tl.progress() * 10) >> 0;
+                    TweenMax.set(myimg, { '-webkit-filter': 'blur(' + tlp + 'px' + ')', 'filter': 'blur(' + tlp + 'px' + ')' });
+                }
+            });
+        setTimeout(callback, 5000);
+        /* The speed/duration of the effect in milliseconds */
     }
 }
+
+
+
+
+
+
+
