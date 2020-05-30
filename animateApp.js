@@ -124,6 +124,8 @@ function animate(callback) {
                     TweenMax.set(myimg, { '-webkit-filter': 'blur(' + tlp + 'px' + ')', 'filter': 'blur(' + tlp + 'px' + ')' });
                 }
             });
+        const use = document.querySelector('.introduction');
+        console.log("width: " + use.getBoundingClientRect().width);
         setTimeout(callback, 5000);
         /* The speed/duration of the effect in milliseconds */
     }

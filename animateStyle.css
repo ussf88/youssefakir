@@ -48,10 +48,9 @@ background: radial-gradient(circle, rgba(23,133,208,1) 30%, rgba(77,57,182,1) 10
     }
 }
 .introduction{
-    border:5px solid black;
     display: flex;
 background: url('header.svg') no-repeat;
-background-size: cover;
+background-size: contain;
 padding-top:50px;
 padding-right: 50px;
 
@@ -263,4 +262,18 @@ section{
     left:5%;
     font-size: 20px;
     color:white;
+}
+.resume{
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+}
+.cv ,.about_cv{
+    height: 100vh;
+    border:5px solid red;
+    flex:1;
+}
+.cv img {
+    max-width: 100%;
+    max-height: 100%;
 }
