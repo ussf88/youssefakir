@@ -50,18 +50,24 @@ background: radial-gradient(circle, rgba(23,133,208,1) 30%, rgba(77,57,182,1) 10
 }
 .introduction{
     display: flex;
-background: url('header.svg') no-repeat;
+background: radial-gradient(circle,rgb(161, 207, 247) 0%, #00539CFF 100%) ;
 background-size: contain;
 padding-top:50px;
 padding-right: 50px;
+color: #FFD662FF !important;
 
 }
-.line{
+.back {
     position: absolute;
-    bottom: 0%;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg,#37C6E6,#0970EA);
+    width:100%;
+    height:20vh;
+    bottom:0;
+    overflow: hidden;
+}
+.back img {
+    width:100%;
+    height: 110% !important;
+    padding: 0 !important;
 }
 .introduction .man-svg{
     flex:1.5;
@@ -230,7 +236,7 @@ padding-right: 50px;
 .about{
     height: 100vh;
     position: relative;
-    background-color: black;
+    background-color: white;
     z-index: -2;
 }
 .slider{
@@ -239,7 +245,6 @@ padding-right: 50px;
     left:0;
     width:100%;
     height: 100vh;
-    background: linear-gradient(90deg,#37C6E6,#0970EA);
     z-index: -1;
 }
 section{
@@ -285,4 +290,29 @@ section{
 .cv img {
     max-width: 100%;
     max-height: 100%;
+}
+.circle{
+    border-radius:50% ;
+position: absolute;
+z-index: -10;
+background: #ECF7FA;
+opacity: 0.8;
+}
+.c1{
+    width: 319px;
+    height: 300px;
+    left: 10%;
+    top: 5vh;
+}
+.c2{
+    width: 319px;
+height: 300px;
+right: 10%;
+top: 5vh;
+}
+.c3 {
+    width: 319px;
+height: 300px;
+right: 5%;
+bottom: 2vh;
 }
