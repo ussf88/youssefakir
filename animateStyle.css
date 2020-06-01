@@ -2,7 +2,7 @@
     margin:0;
     padding:0;
     box-sizing: border-box;
-    font-family: 'Sen', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 .introduction{
     height:100vh;
@@ -37,7 +37,15 @@ background: radial-gradient(circle, rgba(23,133,208,1) 30%, rgba(77,57,182,1) 10
         fill:transparent;
     }
     to {
-        fill:white;
+        fill:#020202;
+    }
+}
+@keyframes fillwords{
+    from{
+        fill:transparent;
+    }
+    to {
+        fill:#F2AA4C;
     }
 }
 @keyframes scal{
@@ -50,7 +58,10 @@ background: radial-gradient(circle, rgba(23,133,208,1) 30%, rgba(77,57,182,1) 10
 }
 .introduction{
     display: flex;
-background: radial-gradient(circle,rgb(38, 93, 148) 0%, #101820FF 100%) ;
+    justify-content: flex-start;
+    align-items: flex-end;
+    background: rgb(38,93,148);
+    background: radial-gradient(circle, rgba(38,93,148,1) 0%, rgba(16,24,32,1) 90%);;
 background-size: contain;
 padding-top:50px;
 padding-right: 50px;
@@ -58,21 +69,20 @@ color: white;
 }
 .impo {
     color: #F2AA4CFF; 
+    transform: translateY(-10vh);
+    opacity: 0;
+    animation: starting 1s ease-out forwards ;
 }
-.back {
-    position: absolute;
-    width:100%;
-    height:20vh;
-    bottom:0;
-    overflow: hidden;
+@keyframes starting {
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+    }
 }
-.back img {
-    width:100%;
-    height: 110% !important;
-    padding: 0 !important;
-}
+
 .introduction .man-svg{
-    flex:1;
+
+    width:40%;
 
 }
 .introduction .man-svg svg {
@@ -81,12 +91,15 @@ color: white;
 
 }
 .text{
-    flex:1;
+    font-family: 'Indie Flower', cursive !important;
     font-size: 1.2rem;
     display:flex;
     flex-direction: column;
     justify-content: center;
-    align-items:center;
+    align-items:flex-start;
+    padding-left:5% ;
+    height:80vh;
+
 }
 .text div {
     margin:20px;
@@ -94,7 +107,7 @@ color: white;
 }
 .impo{
     font-weight: bold;
-    font-size: 5rem;
+    font-size: 4rem;
 }
 .iam{
     height:50px;
@@ -261,7 +274,8 @@ color: white;
 .slider .container{
     width:80%;
     height: 70%;
-    background: radial-gradient(circle,rgb(161, 207, 247) 0%, #00539CFF 100%) ;
+    background: rgb(38,93,148);
+    background: radial-gradient(circle, rgba(38,93,148,1) 0%, rgba(16,24,32,1) 64%);
     position: absolute;
     top:7%;
     left:0%;
@@ -335,5 +349,42 @@ right: 5%;
 bottom: 2vh;
 }
 body{
-    background-color: lightblue !important;
+    background:black ;
+    font-family: 'Indie Flower', cursive !important;
+}
+.loader {
+    z-index: 800;
+    background: black !important;
+}
+.pages {
+    position:absolute;
+    right:30px;
+    z-index:1;
+    top:50vh;
+    transform: translate(0%,-50%);
+    color :white;
+    height:60vh;
+    width:8vw;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.page {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity:0.5;
+}
+.active {
+    opacity:1;
+    color:#F2AA4CFF;
+}
+.active .page-circle{
+background-color: #F2AA4CFF;
+}
+.page-circle {
+    background-color: white;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
 }

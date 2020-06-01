@@ -5,10 +5,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const logoPaths = document.querySelectorAll(`#${id} path`);
         delay = delay;
         for (let i = 0; i < logoPaths.length; i++) {
+            logoPaths[i].setAttribute('stroke', '#0C4071');
+            logoPaths[i].setAttribute('stroke-width', '3');
+            logoPaths[i].removeAttribute('fill');
             logoPaths[i].style.strokeDasharray = logoPaths[i].getTotalLength();
             logoPaths[i].style.strokeDashoffset = logoPaths[i].getTotalLength();
             logoPaths[i].style.animation = `line-anim 2s ease forwards ${delay}s`;
             delay += delayIncrement;
+        }
+        for (let i = 0; i < logoPaths.length; i++) {
+            let id = logoPaths[i].id;
+            if (id == 'Y' || id == 'F') {
+                logoPaths[i].style.animation += `,fillwords 0.5s ease forwards ${delay + 1.5}s`;
+            }
         }
         logo.style.animation = `fill 0.5s ease forwards ${delay + 1.5}s, scal 1s ease forwards 5s,posi 1s ease forwards 6s`;
     }
