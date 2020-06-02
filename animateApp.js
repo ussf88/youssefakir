@@ -72,11 +72,11 @@ const tl = new TimelineMax();
 
 
 // get the element to animate
-var element = document.querySelector(".about");
+/*var element = document.querySelector(".about");
 var elementHeight = element.clientHeight;
 var txt = "Hey There my name is Youssef El Faquir and i Am a web Developer << Currently I'am a Student At The National School of Computer Science ENSIAS Located in Rabat << I was Always a passionate about Computer Science always seeking  fond of Web Development and Web Design";
 var i = 0; /* The text */
-var speed = 50;
+/*var speed = 50;
 function typeWriter() {
     if (i < txt.length) {
         if (txt.charAt(i) == "<") {
@@ -136,11 +136,9 @@ function animate(callback) {
         const use = document.querySelector('.introduction');
         console.log("width: " + use.getBoundingClientRect().width);
         setTimeout(callback, 5000);
-        /* The speed/duration of the effect in milliseconds */
+        /* The speed/duration of the effect in milliseconds
     }
-}
-
-
+}*/
 
 
 
